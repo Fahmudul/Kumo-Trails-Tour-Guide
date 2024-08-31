@@ -18,7 +18,10 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await axios.post("/api/sign-up", userInfo);
+      const response = await axios.post(
+        `${process.env.NEXTAUTH_URL}/api/sign-up`,
+        userInfo
+      );
       toast.success(response?.data?.message);
     } catch (error: any) {
       throw new Error(error);
